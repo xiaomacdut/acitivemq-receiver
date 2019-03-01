@@ -14,7 +14,12 @@ import javax.jms.TextMessage;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
-public class JMSQueueListenerProducer{
+/**
+ * 通过listener来接收消息
+ * @author xiaomacdut
+ * @date 2019年3月1日 下午9:56:44
+ */
+public class JMSQueueListenerConsumer{
     
     public static void main(String [] args){
         ConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://192.168.11.127:61616");
@@ -53,7 +58,7 @@ public class JMSQueueListenerProducer{
             System.out.println(textMessage.getText());
             
             // session.commit();
-            // session.close();
+            session.close();
         }catch(JMSException e){
             e.printStackTrace();
         }catch(IOException e){
